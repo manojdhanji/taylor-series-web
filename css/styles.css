@@ -66,6 +66,13 @@ body {
     border: 1px solid #555;
 }
 
+.order-label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
 /* Buttons */
 button {
     cursor: pointer;
@@ -154,6 +161,9 @@ button:active {
     display: block;
 }
 
+/* ============================
+   legend
+============================ */
 #legend {
     margin-top: 20px;
     font-size: 14px;

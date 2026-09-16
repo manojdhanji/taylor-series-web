@@ -66,7 +66,7 @@ function resizeCanvas() {
     );
 
     // Center the math region inside the canvas
-    offsetX = (width  - (xmax - xmin) * scale) / 2;
+    offsetX = (width - (xmax - xmin) * scale) / 2;
     offsetY = (height - (ymax - ymin) * scale) / 2;
 
     drawAxes();
@@ -100,21 +100,25 @@ export function drawAxes() {
     ctx.strokeStyle = "#333";
 
     // ----- Vertical grid lines -----
-    for (let x = Math.ceil(xmin); x <= xmax; x += gridSpacing) {
+    for (let x = xmin; x <= xmax; x += gridSpacing) {
         const px = toCanvasX(x);
-        ctx.beginPath();
-        ctx.moveTo(px, 0);
-        ctx.lineTo(px, height);
-        ctx.stroke();
+        if (px >= 0 && px <= width) {
+            ctx.beginPath();
+            ctx.moveTo(px, 0);
+            ctx.lineTo(px, height);
+            ctx.stroke();
+        }
     }
 
     // ----- Horizontal grid lines -----
-    for (let y = Math.ceil(ymin); y <= ymax; y += gridSpacing) {
+    for (let y = ymin; y <= ymax; y += gridSpacing) {
         const py = toCanvasY(y);
-        ctx.beginPath();
-        ctx.moveTo(0, py);
-        ctx.lineTo(width, py);
-        ctx.stroke();
+        if (py >= 0 && py <= height) {
+            ctx.beginPath();
+            ctx.moveTo(0, py);
+            ctx.lineTo(width, py);
+            ctx.stroke();
+        }
     }
 
     // ----- Axes -----
@@ -179,7 +183,7 @@ export function setBounds(xminNew, xmaxNew, yminNew, ymaxNew) {
         height / (ymax - ymin)
     );
 
-    offsetX = (width  - (xmax - xmin) * scale) / 2;
+    offsetX = (width - (xmax - xmin) * scale) / 2;
     offsetY = (height - (ymax - ymin) * scale) / 2;
 
     drawAxes();

@@ -5,8 +5,7 @@
 import {
     initCanvas,
     drawAxes,
-    plotFunction,
-    setBounds
+    plotFunction
 } from "./plot.js";
 
 import { getFunctionByName } from "./functions.js";
@@ -92,10 +91,7 @@ function redraw() {
 // Reset view
 // ===============================================
 function resetView() {
-    //setBounds(-10, 10, -10, 10);
-    //redraw();
-    // Reset bounds
-    setBounds(-10, 10, -10, 10);
+    //resizeCanvas()
 
     // Reset slider
     orderSlider.value = 0;
