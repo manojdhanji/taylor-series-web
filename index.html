@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taylor Series Visualizer</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div id="container">
+
+        <!-- ============================
+             LEFT PANEL - CONTROLS
+        ============================ -->
+        <aside id="controls">
+            <h2>Taylor Series Explorer</h2>
+
+            <div class="control-group">
+                <label for="functionSelect">Function</label>
+                <select id="functionSelect">
+                    <option value="sin">sin(x)</option>
+                    <option value="cos">cos(x)</option>
+                    <option value="exp">e^x</option>
+                    <option value="ln1x">ln(1 + x)</option>
+                    <option value="inv1x">1 / (1 + x)</option>
+                    <option value="logistic">logistic(x)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="orderSlider">Taylor Order (n)</label>
+                <input type="range" id="orderSlider" min="0" max="10" value="0">
+                <span id="orderValue">0</span>
+            </div>
+
+            <div class="control-group">
+                <button id="resetBtn">Reset View</button>
+            </div>
+            <div id="legend">
+                <div class="legend-item">
+                    <span class="legend-color" style="background:#00ff00;"></span>
+                    <span>Original Function</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background:#ff9900;"></span>
+                    <span>Taylor Approximation</span>
+                </div>
+            </div>
+
+            <details id="aboutBox">
+                <summary>About This App</summary>
+                <div class="details-content">
+                    <header>
+                        <h3>Taylor Series Visualizer</h3>
+                    </header>
+
+                    <p>
+                        This tool plots a function <strong>f(x)</strong> and its Taylor polynomial
+                        <strong>Tₙ(x)</strong> to show how the approximation improves as the order increases.
+                    </p>
+
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Preset functions</li>
+                        <li>Adjustable Taylor order</li>
+                        <li>Real-time plotting</li>
+                        <li>Canvas-based grid and axes</li>
+                    </ul>
+
+                    <footer>
+                        Built by Manoj - exploring math through visualization.
+                    </footer>
+                </div>
+            </details>
+        </aside>
+
+        <!-- ============================
+             RIGHT PANEL - CANVAS AREA
+        ============================ -->
+        <main id="canvas-area">
+            <canvas id="plotCanvas"></canvas>
+        </main>
+
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

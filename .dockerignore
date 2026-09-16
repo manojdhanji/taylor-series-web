@@ -1,0 +1,7 @@
+# Ignore Dockerfile but keep nginx.conf
+docker/*
+!docker/nginx.conf
+.git
+.gitignore
+README.md
+node_modules/

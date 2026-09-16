@@ -1,0 +1,10 @@
+name: "Taylor Series App"
+
+services:
+  taylor:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: taylor-series-app
+    ports:
+      - "8087:80"
